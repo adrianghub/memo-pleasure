@@ -1,0 +1,24 @@
+{
+  "name": "memo-pleasure",
+  "version": "1.0.0",
+  "description": "MVC Architecture",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianghub/memo-pleasure.git"
+  },
+  "author": "adrianghub",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianghub/memo-pleasure/issues"
+  },
+  "homepage": "https://github.com/adrianghub/memo-pleasure#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
