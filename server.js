@@ -10,6 +10,7 @@ const bodyParser = require('body-parser')
 
 const indexRouter = require("./routes/index");
 const locationRouter = require('./routes/locations')
+const pictureRouter = require('./routes/pictures')
 
 // express setup
 app.set("view engine", "ejs");
@@ -32,5 +33,6 @@ db.once('open', () => console.log('Successfully connected to mongoose'))
 // routes
 app.use("/", indexRouter);
 app.use("/locations", locationRouter)
+app.use("/pictures", pictureRouter)
 
 app.listen(process.env.PORT || 3000);
