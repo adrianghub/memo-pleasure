@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const Location = require('../models/location')
+
 
 // all locations
 router.get('/', (req, res) => {
@@ -9,7 +11,7 @@ router.get('/', (req, res) => {
 
 // new location
 router.get('/new', (req, res) => {
-  res.render('locations/new')
+  res.render('locations/new', { location: new Location() })
 })
 
 // create new location
