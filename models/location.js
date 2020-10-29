@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const locationTable = new mongoose.Schema({
-  name: {
+  country: {
     type: String,
     required: true
   }

@@ -14,9 +14,21 @@ router.get('/new', (req, res) => {
   res.render('locations/new', { location: new Location() })
 })
 
-// create new location
-router.post('/', (req, res) => {
-  res.send('Create')
+// add new location
+router.post('/', async (req, res) => {
+  const location = new Location({
+    country: req.body.country
+  })
+  try {
+    const newLocation = await location.save()
+    // res.redirect('authors/${newLocation.id}')
+    res.redirect('locations')
+  } catch (err) {
+    res.render('locations/new', {
+      location: location,
+      errMessage: `Error happend: ${err}`
+    })
+  }
 })
 
 module.exports = router
