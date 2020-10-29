@@ -5,8 +5,13 @@ const Location = require('../models/location')
 
 
 // all locations
-router.get('/', (req, res) => {
-  res.render('locations/index')
+router.get('/', async (req, res) => {
+  try {
+    const locations = await Location.find({})
+    res.render('locations/index', { locations: locations })
+  } catch {
+    res.redirect('/')
+  }
 })
 
 // new location
