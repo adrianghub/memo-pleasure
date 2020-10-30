@@ -1,0 +1,54 @@
+<label>Title</label>
+<div>
+<input type="text" name="title" value="<%= picture.title %>">
+</div>
+<div>
+<label>Location</label>
+<select name="location">
+  <% locations.map(location => { %>
+    <% if (picture.id === picture.location ) { %>
+      <option 
+        selected
+        label="<%= location.country %>" 
+        value="<%= location.id %>" 
+      >
+    <% } else { %>
+      <option 
+        label="<%= location.country %>" 
+        value="<%= location.id %>" 
+      > 
+    <% } %>
+  <% }) %>  
+</select>
+</div>
+<div>
+<label>Took Date</label>
+<input 
+    type="date" 
+    name="tookDate"
+    value="<%= picture.tookDate != null ? picture.tookDate.toISOString().split('T')[0] : '' %>" 
+/>
+</div>
+<div>
+  <label>Years Old</label>
+  <input 
+      type="number" 
+      name="yearsOld"
+      min="1"
+      value="<%= picture.yearsOld %>" 
+  />
+  </div>
+  <div>
+    <label>Picture</label>
+    <input 
+        type="file" 
+        name="picture"
+        class="filepond"
+    />
+  </div>
+    <label>Description</label>
+    <textarea name="description"
+    >
+    <%= picture.description %>
+    </textarea>
+  </div>
