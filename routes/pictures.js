@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Location = require("../models/location");
 const Picture = require("../models/picture");
+const imageMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'images/gif']
 
 // all pics
 router.get("/", async (req, res) => {
@@ -41,6 +42,7 @@ router.post("/", async (req, res) => {
     yearsOld: req.body.yearsOld,
     description: req.body.description
   })
+  saveImage(picture, req.body.image)
 
   try {
     const newPicture = await picture.save()
@@ -62,6 +64,15 @@ async function renderNewPage(res, picture, hasError = false) {
     res.render('pictures/new', params)
   } catch {
     res.redirect('/pictures')
+  }
+}
+
+function saveImage(picture, imageEncoded) {
+  if (imageEncoded == null) return
+  const image = JSON.parse(imageEncoded)
+  if (image != null && imageMimeTypes.includes(image.type)) {
+    picture.image = new Buffer.from(image.data, 'base64')
+    picture.imageType = image.type
   }
 }
 

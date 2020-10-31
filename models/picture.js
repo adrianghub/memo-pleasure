@@ -25,10 +25,24 @@ const pictureTable = new mongoose.Schema({
     required: true,
     default: Date.now
   },
+  image: {
+    type: Buffer,
+    required: true
+  },
+  imageType: {
+    type: String,
+    required: true
+  },
   location: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: 'Location'
+  }
+})
+
+pictureTable.virtual('imagePath').get(function() {
+  if (this.image != null && this.imageType != null) {
+    return `data:${this.imageType};charset=utf-8;base64,${this.image.toString('base64')}`
   }
 })
 
