@@ -7,4 +7,7 @@
 <br>
 <% locations.map(location => { %>
   <div><%= location.country %></div>
+  <a href="/locations/<%= location.id %>">Show</a>
+  <a href="/locations/<%= location.id %>/edit">Edit</a>
+  <%- include('../partials/deleteForm.ejs', { url: `/locations/${location.id}` }) %>
 <% }) %>
