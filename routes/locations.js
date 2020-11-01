@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const Location = require("../models/location");
+const Picture = require("../models/picture");
 
 // all locations
 router.get("/", async (req, res) => {
@@ -42,8 +43,17 @@ router.post("/", async (req, res) => {
 });
 
 // view route
-router.get("/:id", (req, res) => {
-  res.send(`Show Location ${req.params.id}`)
+router.get("/:id", async (req, res) => {
+  try {
+    const location = await Location.findById(req.params.id)
+    const pictures = await Picture.find({ location: location.id }).limit(10).exec()
+    res.render('locations/show', {
+      location: location,
+      picturesFromCountry: pictures
+    })
+  } catch (err) {
+    res.redirect('/')
+  }
 })
 
 // edit route
@@ -52,8 +62,10 @@ router.get("/:id/edit", async (req, res) => {
   try {
     const location = await Location.findById(req.params.id)
     res.render('locations/edit', { location: location })
-  } catch {
-    res.redirect('/locations')
+  } catch (err) {
+    res.redirect('/locations', {
+      errMessage: `Error happend: ${err}`,
+    })
   }
 })
 
