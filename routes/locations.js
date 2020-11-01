@@ -32,8 +32,7 @@ router.post("/", async (req, res) => {
   });
   try {
     const newLocation = await location.save();
-    // res.redirect('authors/${newLocation.id}')
-    res.redirect("locations");
+    res.redirect(`/locations/${newLocation.id}`)
   } catch (err) {
     res.render("locations/new", {
       location: location,
@@ -42,18 +41,43 @@ router.post("/", async (req, res) => {
   }
 });
 
+// view route
 router.get("/:id", (req, res) => {
   res.send(`Show Location ${req.params.id}`)
 })
 
-router.get("/:id/edit", (req, res) => {
-  res.send(`Edit Location ${req.params.id}`)
+// edit route
+router.get("/:id/edit", async (req, res) => {
+
+  try {
+    const location = await Location.findById(req.params.id)
+    res.render('locations/edit', { location: location })
+  } catch {
+    res.redirect('/locations')
+  }
 })
 
-router.put("/:id", (req, res) => {
-  res.send(`Update Location ${req.params.id}`)
+// update route
+router.put("/:id", async (req, res) => {
+  let location
+  try {
+    location = await Location.findById(req.params.id); 
+    location.country = req.body.country
+    const newLocation = await location.save();
+    res.redirect(`/locations/${newLocation.id}`)
+  } catch (err) {
+    if (location == null) {
+      res.redirect('/')
+    } else {
+      res.render("locations/edit", {
+        location: location,
+        errMessage: `Error happend: ${err}`,
+      });
+    }
+  }
 })
 
+// delete route
 router.delete("/:id", (req, res) => {
   res.send(`Delete Location ${req.params.id}`)
 })

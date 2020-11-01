@@ -1,0 +1,6 @@
+<h2>Edit` location</h2>
+<form action="/locations/<%= location.id %>?_method=PUT" method="POST">
+  <%- include('./_form_fields.ejs') %>
+  <a href="/locations/<%= location.id %>">Cancel</a>
+  <button type="submit">Update</button>
+</form>
