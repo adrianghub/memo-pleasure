@@ -46,8 +46,7 @@ router.post("/", async (req, res) => {
 
   try {
     const newPicture = await picture.save()
-    // res.redirect(`pictures/${newPicture.id}`)
-    res.redirect('pictures') 
+    res.redirect(`/pictures/${newPicture.id}`)
   } catch {
     renderNewPage(res, picture, true)
   }
@@ -75,14 +74,30 @@ router.get("/:id/edit", async(req, res) => {
 })
 
 // update pic
-router.put("/:id", async(req, res) => {
+router.put("/:id", async (req, res) => {
+  let picture
   try {
-    res.send(`Update: ${req.params.id}`)
+    picture = await Picture.findById(req.params.id)
+    picture.title = req.body.title
+    picture.location = req.body.location
+    picture.tookDate = new Date(req.body.tookDate)
+    picture.yearsOld = req.body.yearsOld
+    picture.description = req.body.description
+    if (req.body.image != null && req.body.image !== '') {
+      saveImage(picture, req.body.image)
+    }
+    const newPicture = await picture.save()
+    res.redirect(`/pictures/${newPicture.id}`)
   } catch (err) {
     console.log(err)
-    res.redirect('/')
+    if (picture == null) {
+      res.redirect('/')
+    } else {
+      renderEditPage(res, picture, true)
+    }
   }
-})
+});
+
 
 // delete pic
 router.delete("/:id/", async(req, res) => {
@@ -109,7 +124,13 @@ async function renderPageTemplate(res, picture, template, hasError = false) {
       locations: locations,
       picture: picture
     }
-    if (hasError) params.errorMessage = 'Error occurred while adding new picture'
+    if (hasError) {
+      if (template === 'edit') {
+        params.errorMessage = 'Error occurred while editing picture'
+      } else {
+        params.errorMessage = 'Error occurred while adding new picture'
+      }
+    }
     res.render(`pictures/${template}`, params)
   } catch {
     res.redirect('pictures/')
