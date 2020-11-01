@@ -78,8 +78,19 @@ router.put("/:id", async (req, res) => {
 })
 
 // delete route
-router.delete("/:id", (req, res) => {
-  res.send(`Delete Location ${req.params.id}`)
+router.delete("/:id", async (req, res) => {
+  let location
+  try {
+    location = await Location.findById(req.params.id)
+    await location.remove()
+    res.redirect("/locations")
+  } catch (err) {
+    if (location == null) {
+      res.redirect('/')
+    } else {
+      res.redirect(`/locations/${location.id}`)
+    }
+  }
 })
 
 module.exports = router;
