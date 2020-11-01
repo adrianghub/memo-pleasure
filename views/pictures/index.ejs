@@ -1,22 +1,23 @@
 <h2>Search Picture<h2>
-<form action="/pictures" method="get">
-  <div>
-  <label>Title</label>
-  <input type="text" name="title" value="<%= searchOptions.title %>">
-  </div>
-  <div>
-    <label>Took After</label>
-    <input type="date" name="tookAfter" value="<%= searchOptions.tookAfter %>">
-  </div>
-  <div>
-  <div>
-    <label>Took Before</label>
-    <input type="date" name="tookBefore" value="<%= searchOptions.tookBefore %>">
-  </div>
-  <button type="submit">Search</button>
-</form>
-<div>
-  <% pictures.map(picture => { %>
-    <img width="320" height="240" src="<%= picture.imagePath %>"/>
-  <% }) %>
-</div>
+    <form action="/pictures" method="get">
+      <div>
+        <label>Title</label>
+        <input type="text" name="title" value="<%= searchOptions.title %>">
+      </div>
+      <div>
+        <label>Took After</label>
+        <input type="date" name="tookAfter" value="<%= searchOptions.tookAfter %>">
+      </div>
+      <div>
+        <div>
+          <label>Took Before</label>
+          <input type="date" name="tookBefore" value="<%= searchOptions.tookBefore %>">
+        </div>
+        <button type="submit">Search</button>
+    </form>
+    <div>
+      <% pictures.map(picture => { %>
+      <a href="/pictures/<%= picture.id %>">
+        <img width="320" height="240" src="<%= picture.imagePath %>" /></a>
+      <% }) %>
+    </div>

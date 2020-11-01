@@ -52,6 +52,7 @@ router.get("/:id", async (req, res) => {
       picturesFromCountry: pictures
     })
   } catch (err) {
+    console.log(err)
     res.redirect('/')
   }
 })

@@ -1,0 +1,12 @@
+<%- include('../partials/functions.ejs') %>
+
+<h2><%= picture.title %></h2>
+<img width="320" height="240" src="<%= picture.imagePath %>">
+<div>Location: <%= picture.location.country %></div>
+<div>Date: <%= date(picture.tookDate) %></div>
+<div>Years Old: <%= picture.yearsOld %></div>
+<div>Description: <%= picture.description %></div>
+
+<a href="/pictures/<%= picture.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm.ejs', { url: `/pictures/${picture.id}` }) %>
+<a href="/locations/<%= picture.location.id %>">View Pics From Country</a>

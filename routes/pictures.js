@@ -53,7 +53,56 @@ router.post("/", async (req, res) => {
   }
 });
 
+// view pic
+router.get('/:id', async(req, res) => {
+  try {
+    const picture = await Picture.findById(req.params.id).populate('location').exec()
+    res.render('pictures/show', { picture: picture })
+  } catch (err) {
+    console.log(err)
+    res.redirect('/')
+  }
+})
+
+// edit pic
+router.get("/:id/edit", async(req, res) => {
+  try {
+    const picture = await Picture.findById(req.params.id)
+    renderEditPage(res, picture)
+  } catch {
+    res.redirect('/')
+  }
+})
+
+// update pic
+router.put("/:id", async(req, res) => {
+  try {
+    res.send(`Update: ${req.params.id}`)
+  } catch (err) {
+    console.log(err)
+    res.redirect('/')
+  }
+})
+
+// delete pic
+router.delete("/:id/", async(req, res) => {
+  try {
+    res.send(`Delete: ${req.params.id}`)
+  } catch (err) {
+    console.log(err)
+    res.redirect('/')
+  }
+})
+
 async function renderNewPage(res, picture, hasError = false) {
+  renderPageTemplate(res, picture, 'new', hasError)
+}
+
+async function renderEditPage(res, picture, hasError = false) {
+  renderPageTemplate(res, picture, 'edit', hasError)
+}
+
+async function renderPageTemplate(res, picture, template, hasError = false) {
   try {
     const locations = await Location.find({})
     const params = {
@@ -61,9 +110,9 @@ async function renderNewPage(res, picture, hasError = false) {
       picture: picture
     }
     if (hasError) params.errorMessage = 'Error occurred while adding new picture'
-    res.render('pictures/new', params)
+    res.render(`pictures/${template}`, params)
   } catch {
-    res.redirect('/pictures')
+    res.redirect('pictures/')
   }
 }
 
