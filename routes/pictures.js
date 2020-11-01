@@ -100,12 +100,22 @@ router.put("/:id", async (req, res) => {
 
 
 // delete pic
-router.delete("/:id/", async(req, res) => {
+router.delete("/:id", async(req, res) => {
+  let picture
   try {
-    res.send(`Delete: ${req.params.id}`)
+    picture = Picture.findById(req.params.id)
+    await picture.remove()
+    res.redirect('/pictures')
   } catch (err) {
     console.log(err)
-    res.redirect('/')
+    if (picture == null) {
+      res.redirect('/')
+    } else {
+      res.render('pictures/show', {
+        picture: picture,
+        errorMessage: 'Unable to delete book'
+      })
+    }
   }
 })
 

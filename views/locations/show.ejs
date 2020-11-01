@@ -5,6 +5,8 @@
 <% if (picturesFromCountry.length > 0) { %>
   <h2>Pictures from country</h2>
   <% picturesFromCountry.map(picture => { %>
-    <img width="320" height="240" src="<% picture.imagePath %>">
+    <a href="/pictures/<%= picture.id %>">
+      <img width="320" height="240" src="<%= picture.imagePath %>">
+    </a>
   <% }) %>
 <% } %>

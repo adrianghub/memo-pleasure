@@ -1,6 +1,8 @@
 <h2>Recently Added</h2>
 <div>
   <% pictures.map(picture => { %>
-    <img width="320" height="240" src="<%= picture.imagePath %>"/>
+    <a href="/pictures/<%= picture.id %>">
+      <img width="320" height="240" src="<%= picture.imagePath %>"/>
+    </a>
   <% }) %>
 </div>
