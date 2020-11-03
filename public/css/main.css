@@ -1,3 +1,6 @@
+*, *:before, *:after {
+  box-sizing: border-box; }
+
 :root {
   font-family: 'Raleway', sans-serif;
   font-size: 1.25rem; }
@@ -5,3 +8,46 @@
 body {
   background: linear-gradient(to right, #8800ff, #360066);
   color: #c88aff; }
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 3rem; }
+
+.inner-container {
+  margin: 0 2rem; }
+
+.header__title {
+  color: #c88aff;
+  text-decoration: none;
+  font-size: 3rem;
+  font-weight: bold; }
+  .header__title:hover {
+    color: #fafafa; }
+
+.header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5rem; }
+
+.header__list {
+  display: flex;
+  margin: 0;
+  padding: 0; }
+
+.header__item {
+  list-style: none; }
+
+.header__link {
+  text-decoration: none;
+  color: #c88aff;
+  font-weight: 600;
+  padding: 1rem; }
+  .header__link:hover {
+    color: #fafafa; }
+
+.page-header {
+  font-size: 2rem;
+  font-weight: 500; }

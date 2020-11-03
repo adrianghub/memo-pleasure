@@ -1,4 +1,4 @@
-<h2><%= location.country  %></h2>
+<h2 class="page-header"><%= location.country  %></h2>
 <a href="/locations/<%= location.id %>/edit">Edit</a>
 <%- include('../partials/deleteForm.ejs', { url: `/locations/${location.id}` }) %>
 

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- font style -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <!-- filepond -->
   <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
   <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
@@ -16,11 +18,18 @@
   <link rel="stylesheet" href="/css/main.css">
   <title>memo.pleasure</title>
 </head>
+
 <body>
+
   <body>
-    <%- include('../partials/header.ejs') %>
-    <%- include('../partials/errMessage.ejs') %>
-    <%- body %>
+    <div class="container">
+      <%- include('../partials/header.ejs') %>
+      <div class="inner-container">
+        <%- include('../partials/errMessage.ejs') %>
+        <%- body %>
+      </div>
+    </div>
   </body>
 </body>
+
 </html>

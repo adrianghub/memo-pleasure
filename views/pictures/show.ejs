@@ -1,6 +1,6 @@
 <%- include('../partials/functions.ejs') %>
 
-<h2><%= picture.title %></h2>
+<h2 class="page-header"><%= picture.title %></h2>
 <img width="320" height="240" src="<%= picture.imagePath %>">
 <div>Location: <%= picture.location.country %></div>
 <div>Date: <%= date(picture.tookDate) %></div>

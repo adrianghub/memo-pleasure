@@ -1,0 +1,46 @@
+.header {
+  &__title {
+    color: $color-text-light;
+    text-decoration: none;
+    font-size: $nav-title-font-size;
+    font-weight: $nav-title-font-weight;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-text-light;
+    font-weight: $nav-link-font-weight;
+    padding: 1rem;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.page-header {
+  font-size: 2rem;
+  font-weight: 500;
+}

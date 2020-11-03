@@ -1,3 +1,7 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: 'Raleway', sans-serif;
   font-size: 1.25rem;
