@@ -1,0 +1,9 @@
+:root {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+}
+
+body {
+  background: linear-gradient(to right,$color-background-dark ,$color-background-light);
+  color: $color-text-light;
+}
