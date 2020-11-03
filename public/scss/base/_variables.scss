@@ -1,10 +1,25 @@
 $white: #fafafa;
+$black: #222;
 
-$color-base: 272;
-$color-background-light: hsl($color-base, 100%, 20%);
-$color-background-dark: hsl($color-base, 100%, 50%);
-$color-text-light: hsl($color-base, 100%, 77%);
+$color-base-hue: 272;
+$color-secondary-hue-offset: 270;
+$color-secondary-hue: calc(#{$color-base-hue} - #{$color-secondary-hue-offset});
+$color-background-light: hsl($color-base-hue, 100%, 20%);
+$color-background-dark: hsl($color-base-hue, 100%, 50%);
+$color-text-light: hsl($color-base-hue, 100%, 77%);
 
 $nav-title-font-size: 3rem;
 $nav-title-font-weight: bold;
 $nav-link-font-weight: 600; 
+
+$color-btn-primary-text: hsl($color-base-hue, 100%, 20%);
+$color-btn-primary-text-dark: hsl($color-base-hue, 100%, 10%);
+$color-btn-primary-background: hsl($color-base-hue, 100%, 83%);
+$color-btn-primary-background-dark: hsl($color-base-hue, 100%, 73%);
+
+$color-btn-secondary-text: $black;
+$color-btn-secondary-text-dark: $black;
+$color-btn-secondary-background: hsl($color-secondary-hue, 100%, 83%);
+$color-btn-secondary-background-dark: hsl($color-secondary-hue, 100%, 73%);
+
+$color-btn-border: $black;

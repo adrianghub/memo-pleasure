@@ -1,13 +1,15 @@
 <h2 class="page-header">Search Location<h2>
-<form action="/locations" method="get">
-  <label>Country</label>
-  <input type="text" name="country" value="<%= searchOptions.country %>">
-  <button type="submit">Search</button>
-</form>
-<br>
-<% locations.map(location => { %>
-  <div><%= location.country %></div>
-  <a href="/locations/<%= location.id %>">Show</a>
-  <a href="/locations/<%= location.id %>/edit">Edit</a>
-  <%- include('../partials/deleteForm.ejs', { url: `/locations/${location.id}` }) %>
-<% }) %>
+    <form action="/locations" method="get">
+      <label>Country</label>
+      <input type="text" name="country" value="<%= searchOptions.country %>">
+      <button type="submit">Search</button>
+    </form>
+    <br>
+    <% locations.map(location => { %>
+    <div><%= location.country %></div>
+    <div class="row">
+      <a class="btn btn-primary" href="/locations/<%= location.id %>">Show</a>
+      <a class="btn btn-primary" href="/locations/<%= location.id %>/edit">Edit</a>
+      <%- include('../partials/deleteForm.ejs', { url: `/locations/${location.id}` }) %>
+    </div>
+    <% }) %>

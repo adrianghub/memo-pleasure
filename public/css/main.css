@@ -51,3 +51,37 @@ body {
 .page-header {
   font-size: 2rem;
   font-weight: 500; }
+
+.btn {
+  border: 1px solid #222;
+  border-radius: .5rem;
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none; }
+
+.btn-primary {
+  color: #360066;
+  background-color: #d7a8ff; }
+  .btn-primary:hover {
+    color: #1b0033;
+    background-color: #bf75ff; }
+
+.btn-secondary {
+  color: #222;
+  background-color: hsl(calc(272 - 270), 100%, 83%); }
+  .btn-secondary:hover {
+    color: #222;
+    background-color: hsl(calc(272 - 270), 100%, 73%); }
+
+.row {
+  display: flex;
+  align-items: flex-start; }
+
+.row > * {
+  margin-left: 1rem; }
+
+.row > *:first-child {
+  margin-left: 0; }
