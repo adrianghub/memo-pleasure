@@ -1,8 +1,14 @@
 <h2 class="page-header">Search Location<h2>
     <form action="/locations" method="get">
-      <label>Country</label>
-      <input type="text" name="country" value="<%= searchOptions.country %>">
-      <button type="submit">Search</button>
+      <div class="form-row">
+        <div class="form-row__item">
+          <label>Country</label>
+          <input type="text" name="country" value="<%= searchOptions.country %>">
+        </div>
+      </div>
+      <div class="form-row form-row--end">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
     </form>
     <br>
     <% locations.map(location => { %>

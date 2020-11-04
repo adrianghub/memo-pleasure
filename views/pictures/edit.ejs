@@ -1,6 +1,8 @@
 <h2 class="page-header">Edit picture</h2>
 <form action="/pictures/<%= picture.id %>?_method=PUT" method="POST">
   <%- include('./_form_fields.ejs') %>
-  <a href="/pictures">Cancel</a>
-  <button type="submit">Update</button>
+  <div class="form-row form-row-end row">
+    <a class="btn btn-secondary" href="/pictures">Cancel</a>
+    <button class="btn btn-primary" type="submit">Update</button>
+  </div>
 </form>

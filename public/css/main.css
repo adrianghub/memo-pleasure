@@ -85,3 +85,53 @@ body {
 
 .row > *:first-child {
   margin-left: 0; }
+
+.form-row {
+  display: flex;
+  margin-bottom: .5rem; }
+  .form-row--end {
+    justify-content: flex-end; }
+  .form-row__item {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    flex-grow: 1;
+    flex-basis: 0; }
+    .form-row__item:first-child {
+      margin-left: 0; }
+    .form-row__item--no-grow {
+      flex-grow: 0; }
+    .form-row__item > label {
+      font-size: 1.2rem;
+      margin-bottom: .25rem;
+      margin-left: .25rem; }
+    .form-row__item > input, .form-row__item > select, .form-row__item > textarea {
+      height: 2rem;
+      padding: .25rem .5rem;
+      border-radius: .25rem;
+      border: 1px solid #8800ff;
+      background-color: #440080;
+      color: #c88aff;
+      font-size: 1rem;
+      font-weight: normal;
+      font-family: inherit;
+      outline: none; }
+      .form-row__item > input:focus, .form-row__item > select:focus, .form-row__item > textarea:focus {
+        border-color: #cf99ff; }
+    .form-row__item > select option {
+      background-color: #222; }
+    .form-row__item > textarea {
+      height: 100%;
+      resize: none; }
+
+.filepond--root {
+  font-family: inherit;
+  margin-bottom: 0; }
+
+.filepond--panel-root {
+  background-color: #440080;
+  border: 1px solid #8800ff; }
+
+.filepond--drop-label {
+  color: #c88aff;
+  font-size: inherit; }
