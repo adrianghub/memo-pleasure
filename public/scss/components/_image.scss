@@ -14,13 +14,3 @@
     height: calc(#{$image-width-large} / #{$image-aspect-ratio});
   }
 }
-
-.image-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fill, $image-width);
-
-  &--large {
-    grid-template-columns: repeat(auto-fill, $image-width-large);
-  }
-}

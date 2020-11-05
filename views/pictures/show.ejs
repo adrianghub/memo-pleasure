@@ -1,12 +1,24 @@
 <%- include('../partials/functions.ejs') %>
 
 <h2 class="page-header"><%= picture.title %></h2>
-<img width="320" height="240" src="<%= picture.imagePath %>">
-<div>Location: <%= picture.location.country %></div>
-<div>Date: <%= date(picture.tookDate) %></div>
-<div>Years Old: <%= picture.yearsOld %></div>
-<div>Description: <%= picture.description %></div>
-
-<a href="/pictures/<%= picture.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm.ejs', { url: `/pictures/${picture.id}` }) %>
-<a href="/locations/<%= picture.location.id %>">View Pics From Country</a>
+<div class="picture-details">
+  <div>
+    <img class="image" src="<%= picture.imagePath %>">
+    <div class="picture-details__grid--button">
+      <a class="btn btn-primary" href="/pictures/<%= picture.id %>/edit">Edit</a>
+      <%- include('../partials/deleteForm.ejs', { url: `/pictures/${picture.id}` }) %>
+      <a class="btn btn-primary picture-details__button" href="/locations/<%= picture.location.id %>">View Pics From
+        Country</a>
+    </div>
+  </div>
+  <div class="picture-details__grid">
+    <div class="picture-details__label">Location: </div>
+    <div><%= picture.location.country %></div>
+    <div class="picture-details__label">Date: </div>
+    <div><%= date(picture.tookDate) %></div>
+    <div class="picture-details__label">Years Old: </div>
+    <div><%= picture.yearsOld %></div>
+    <div class="picture-details__label">Description: </div>
+    <div><%= picture.description %></div>
+  </div>
+</div>

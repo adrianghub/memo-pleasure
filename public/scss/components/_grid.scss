@@ -1,0 +1,45 @@
+.image-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, $image-width);
+
+  &--large {
+    grid-template-columns: repeat(auto-fill, $image-width-large);
+  }
+}
+
+.picture-details {
+  display: flex;
+
+  &__grid {
+    display: grid;
+    align-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    grid-template-columns: auto auto;
+    margin-left: 1rem;
+
+    &--button {
+      display: grid;
+      align-items: flex-start;
+      align-content: flex-start;
+      grid-template-areas:
+        "edit delete"
+        "view view";
+      gap: .5rem;
+      margin-top: .5rem;
+    }
+  }
+
+  &__button {
+    grid-area: view;
+    justify-self: stretch;
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    align-self: flex-start;
+  }
+}
+

@@ -1,3 +1,5 @@
+// import styles from '../scss/base/_export.scss';
+
 FilePond.registerPlugin(
   FilePondPluginImagePreview,
   FilePondPluginImageResize,
@@ -5,9 +7,9 @@ FilePond.registerPlugin(
 )
 
 FilePond.setOptions({
-  stylePanelAspectRatio: 240 / 320,
-  imageResizeTargetWidth: 240,
-  imageResizeTargetWidth: 320
+  stylePanelAspectRatio: 1 / 1.5,
+  imageResizeTargetWidth: 640,
+  imageResizeTargetHeight: 480
 })
 
 FilePond.parse(document.body);

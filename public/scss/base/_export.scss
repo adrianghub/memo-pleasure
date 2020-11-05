@@ -1,0 +1,6 @@
+@import './variables';
+
+:export {
+  largeImageWidth: $image-width-large;
+  imageAspectRatio: $image-aspect-ratio;
+}
