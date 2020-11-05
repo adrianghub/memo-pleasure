@@ -1,14 +1,10 @@
 <h2 class="page-header"><%= location.country  %></h2>
-<div class="row">
+<div class="btn-row">
   <a class="btn btn-primary" href="/locations/<%= location.id %>/edit">Edit</a>
   <%- include('../partials/deleteForm.ejs', { url: `/locations/${location.id}` }) %>
 </div>
 
 <% if (picturesFromCountry.length > 0) { %>
 <h2 class="page-header">Pictures from country</h2>
-<% picturesFromCountry.map(picture => { %>
-<a href="/pictures/<%= picture.id %>">
-  <img width="320" height="240" src="<%= picture.imagePath %>">
-</a>
-<% }) %>
+<%- include('../partials/picturesGrid', { pictures: picturesFromCountry })%>
 <% } %>

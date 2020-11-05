@@ -20,9 +20,4 @@
           <button class="btn btn-primary" type="submit">Search</button>
         </div>
     </form>
-    <div>
-      <% pictures.map(picture => { %>
-      <a href="/pictures/<%= picture.id %>">
-        <img width="320" height="240" src="<%= picture.imagePath %>" /></a>
-      <% }) %>
-    </div>
+    <%- include('../partials/picturesGrid.ejs', { pictures: pictures, large: true })%>

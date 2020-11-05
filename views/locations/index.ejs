@@ -12,10 +12,12 @@
     </form>
     <br>
     <% locations.map(location => { %>
-    <div><%= location.country %></div>
-    <div class="row">
-      <a class="btn btn-primary" href="/locations/<%= location.id %>">Show</a>
-      <a class="btn btn-primary" href="/locations/<%= location.id %>/edit">Edit</a>
-      <%- include('../partials/deleteForm.ejs', { url: `/locations/${location.id}` }) %>
+    <div class="locations locations-row">
+      <div class="locations__country"><%= location.country %></div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/locations/<%= location.id %>">Show</a>
+        <a class="btn btn-primary" href="/locations/<%= location.id %>/edit">Edit</a>
+        <%- include('../partials/deleteForm.ejs', { url: `/locations/${location.id}` }) %>
+      </div>
     </div>
     <% }) %>

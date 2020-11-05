@@ -1,0 +1,11 @@
+.locations-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.locations {
+  &__country {
+    font-size: 1.5rem;
+  }
+}

@@ -1,8 +1,4 @@
 <h2 class="page-header">Recently Added</h2>
 <div>
-  <% pictures.map(picture => { %>
-    <a href="/pictures/<%= picture.id %>">
-      <img width="320" height="240" src="<%= picture.imagePath %>"/>
-    </a>
-  <% }) %>
+  <%- include('./partials/picturesGrid.ejs', { pictures: pictures, large: true })%>
 </div>

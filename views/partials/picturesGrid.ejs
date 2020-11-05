@@ -1,0 +1,12 @@
+<% pictureImageClass = locals.large ? 
+'image--large' : '' %>
+<% pictureGridClass = locals.large ? 
+'image-grid--large' : '' %>
+
+<div class="image-grid <%= pictureGridClass %>">
+  <% pictures.map(picture => { %>
+    <a href="/pictures/<%= picture.id %>">
+      <img class="image <%= pictureImageClass %>" src="<%= picture.imagePath %>">
+    </a>
+  <% }) %>
+</div>

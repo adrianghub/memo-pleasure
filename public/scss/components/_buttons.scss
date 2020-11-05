@@ -29,15 +29,15 @@
   }
 }
 
-.row {
+.btn-row {
   display: flex;
   align-items: flex-start;
 }
 
-.row > * {
+.btn-row > * {
   margin-left: 1rem;
 }
 
-.row > *:first-child {
+.btn-row > *:first-child {
   margin-left: 0;
 }
