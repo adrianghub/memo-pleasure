@@ -1,3 +1,8 @@
+/* Base */
+/* Nav */
+/* Btn */
+/* Form */
+/* Image */
 *, *:before, *:after {
   box-sizing: border-box; }
 
@@ -162,3 +167,6 @@ body {
   grid-template-columns: repeat(auto-fill, 320px); }
   .image-grid--large {
     grid-template-columns: repeat(auto-fill, 480px); }
+
+.error-msg {
+  color: hsl(calc(272 - 270), 100%, 65%); }
